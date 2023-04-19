@@ -5,7 +5,7 @@ const router = express.Router();
 const ctrlUser = require('../../controllers/users');
 const { ctrlWrapper } = require('../../helpers');
 
-const { validateBody, isvalidId } = require('../../middlewares');
+const { validateBody, authenticate } = require('../../middlewares');
 const schemas = require('../../schemas');
 
 router.post(
