@@ -11,7 +11,7 @@ describe('test to login controller', () => {
   let server;
 
   const loginUser = {
-    email: 'test@mail.com',
+    email: 'loginControllerTest@mail.com',
     password: 'test123',
   };
 
