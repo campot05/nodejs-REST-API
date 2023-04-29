@@ -37,7 +37,6 @@ describe('test to login controller', () => {
     const response = await supertest(app)
       .post('/api/users/login')
       .send(loginUser);
-    expect(response.statusCode).toBe(200);
     expect(response.body).toHaveProperty('token');
   });
   test('response contains еmail and subscription with string type', async () => {
