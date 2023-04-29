@@ -5,7 +5,12 @@ const router = express.Router();
 const ctrlUser = require('../../controllers/users');
 const { ctrlWrapper } = require('../../helpers');
 
-const { validateBody, authenticate, isvalidId } = require('../../middlewares');
+const {
+  validateBody,
+  authenticate,
+  isvalidId,
+  upload,
+} = require('../../middlewares');
 const schemas = require('../../schemas');
 
 router.post(
@@ -25,6 +30,13 @@ router.patch(
   authenticate,
   validateBody(schemas.updateSubscription),
   ctrlWrapper(ctrlUser.updateSubscription)
+);
+
+router.patch(
+  '/avatars',
+  authenticate,
+  upload.single('avatar'),
+  ctrlWrapper(ctrlUser.updateAvatar)
 );
 
 router.get('/current', authenticate, ctrlWrapper(ctrlUser.getCurrent));
