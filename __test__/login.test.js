@@ -22,7 +22,7 @@ describe('test to login controller', () => {
   });
 
   afterAll(async () => {
-    await User.deleteOne({ email: 'test@mail.com' });
+    await User.deleteOne({ email: 'loginControllerTest@mail.com' });
     await mongoose.connection.close();
     server.close();
   });
